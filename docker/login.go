@@ -15,12 +15,7 @@ func Login(registry string) (bool, error) {
 
 	logrus.Info("log in: ", registry)
 
-	if strings.Contains(registry, "docker") {
-		registry = "https://" + registry + "/v2"
-
-	} else {
-		registry = "http://" + registry + "/v2"
-	}
+  registry = "https://" + registry + "/v2"
 
 	client := httpclient.Get()
 	request, err := http.NewRequest("GET", registry, nil)
